@@ -10,6 +10,7 @@ public class PlayerCtrl : MonoBehaviour
     [Tooltip("This is a positive integer which speeds up the player jump.")]
     public int jumpSpeed = 600;
 
+    bool leftPressed, rightPressed;
     bool isJumping;
     public bool isGrounded;
     public Transform feet;
@@ -57,6 +58,18 @@ public class PlayerCtrl : MonoBehaviour
         {
             Jump();
         }
+
+        ShowFalling();
+
+        if (leftPressed)
+        {
+            MoveHorizontal(-speedBoost);
+        }
+
+        if (rightPressed)
+        {
+            MoveHorizontal(speedBoost);
+        }
     }
 
     void FireBullet()
@@ -93,8 +106,6 @@ public class PlayerCtrl : MonoBehaviour
         {
             animator.SetInteger("State", 1);
         }
-
-        ShowFalling();
     }
 
     void StopMoving()
@@ -105,6 +116,33 @@ public class PlayerCtrl : MonoBehaviour
         {
             animator.SetInteger("State", 0);
         }
+    }
+
+    public void MobileMoveLeft()
+    {
+        leftPressed = true;
+    }
+    public void MobileMoveRight()
+    {
+        rightPressed = true;
+
+    }
+    public void MobileStop()
+    {
+        leftPressed = false;
+        rightPressed = false;
+
+        StopMoving();
+    }
+
+    public void MobileFire()
+    {
+        FireBullet();
+    }
+
+    public void MobileJump()
+    {
+        Jump();
     }
 
     void Jump()
