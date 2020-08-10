@@ -187,4 +187,17 @@ public class PlayerCtrl : MonoBehaviour
             isJumping = false;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        switch(other.gameObject.tag)
+        {
+            case "Coin":
+                FireBullet();
+                SFXCtrl.instance.ShowCoinSparkle(other.gameObject.transform.position);
+                break;
+            default:
+                break;
+        }
+    }
 }
