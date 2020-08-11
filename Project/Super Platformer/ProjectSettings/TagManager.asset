@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Coin
+  - Powerup_Bullet
   layers:
   - Default
   - TransparentFX

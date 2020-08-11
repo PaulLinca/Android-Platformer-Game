@@ -22,6 +22,8 @@ public class PlayerCtrl : MonoBehaviour
     bool canDoubleJump;
     public Transform leftBulletSpawnPos, rightBulletSpawnPos;
     public GameObject leftBullet, rightBullet;
+    public bool SFXOn;
+    public bool canFire;
 
     Rigidbody2D catRigidbody;
     SpriteRenderer catSpriteRenderer;
@@ -74,13 +76,16 @@ public class PlayerCtrl : MonoBehaviour
 
     void FireBullet()
     {
-        if(catSpriteRenderer.flipX)
+        if(canFire)
         {
-            Instantiate(leftBullet, leftBulletSpawnPos.position, Quaternion.identity);
-        }
-        else
-        {
-            Instantiate(rightBullet, rightBulletSpawnPos.position, Quaternion.identity);
+            if(catSpriteRenderer.flipX)
+            {
+                Instantiate(leftBullet, leftBulletSpawnPos.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(rightBullet, rightBulletSpawnPos.position, Quaternion.identity);
+            }
         }
     }
 
@@ -193,8 +198,18 @@ public class PlayerCtrl : MonoBehaviour
         switch(other.gameObject.tag)
         {
             case "Coin":
-                FireBullet();
-                SFXCtrl.instance.ShowCoinSparkle(other.gameObject.transform.position);
+                if(SFXOn)
+                {
+                    SFXCtrl.instance.ShowCoinSparkle(other.gameObject.transform.position);
+                }
+                break;
+            case "Powerup_Bullet":
+                canFire = true;
+                if(SFXOn)
+                {
+                    SFXCtrl.instance.ShowBulletSparkle(other.gameObject.transform.position);
+                }
+                Destroy(other.gameObject);
                 break;
             default:
                 break;

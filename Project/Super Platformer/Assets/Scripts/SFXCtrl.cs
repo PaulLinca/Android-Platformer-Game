@@ -5,9 +5,8 @@ using UnityEngine;
 public class SFXCtrl : MonoBehaviour
 {
     public static SFXCtrl instance;
+    public SFX sfx;
 
-    public GameObject sfx_coin_pickup;
-    
     void Awake()
     {
         if(instance == null)
@@ -18,6 +17,16 @@ public class SFXCtrl : MonoBehaviour
 
     public void ShowCoinSparkle(Vector3 position)
     {
-        Instantiate(sfx_coin_pickup, position, Quaternion.identity);
+        Instantiate(sfx.sfx_coin_pickup, position, Quaternion.identity);
+    }
+
+    public void ShowBulletSparkle(Vector3 position)
+    {
+        Instantiate(sfx.sfx_bullet_pickup, position, Quaternion.identity);
+    }
+
+    public void ShowPlayerLanding(Vector3 position)
+    {
+        Instantiate(sfx.sfx_player_land, position, Quaternion.identity);
     }
 }
