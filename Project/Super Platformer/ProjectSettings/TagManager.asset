@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Coin
   - Powerup_Bullet
+  - Breakable
+  - PLayerHead
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Collectable
   - Enemies
   - Players
-  - 
+  - Fragment
   - 
   - 
   - 
