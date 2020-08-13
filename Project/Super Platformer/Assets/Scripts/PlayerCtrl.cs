@@ -211,6 +211,9 @@ public class PlayerCtrl : MonoBehaviour
                 }
                 Destroy(other.gameObject);
                 break;
+            case "Water":
+                SFXCtrl.instance.ShowWaterSplash(other.gameObject.transform.position);
+                break;
             default:
                 break;
         }

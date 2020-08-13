@@ -9,6 +9,7 @@ TagManager:
   - Powerup_Bullet
   - Breakable
   - PLayerHead
+  - Water
   layers:
   - Default
   - TransparentFX

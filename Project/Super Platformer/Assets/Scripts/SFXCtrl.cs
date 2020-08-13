@@ -50,4 +50,9 @@ public class SFXCtrl : MonoBehaviour
         Instantiate(sfx.sfx_box_fragment_2, pos3, Quaternion.identity);
         Instantiate(sfx.sfx_box_fragment_1, pos4, Quaternion.identity);
     }
+
+    public void ShowWaterSplash(Vector3 position)
+    {
+        Instantiate(sfx.sfx_splash, position, Quaternion.identity);
+    }
 }
