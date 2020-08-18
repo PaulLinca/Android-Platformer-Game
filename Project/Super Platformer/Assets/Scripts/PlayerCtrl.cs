@@ -11,7 +11,7 @@ public class PlayerCtrl : MonoBehaviour
     public int jumpSpeed = 600;
 
     bool leftPressed, rightPressed;
-    bool isJumping;
+    public bool isJumping;
     public bool isGrounded;
     public Transform feet;
     public float feetRadius;
@@ -24,7 +24,7 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject leftBullet, rightBullet;
     public bool SFXOn;
     public bool canFire;
-
+    
     Rigidbody2D catRigidbody;
     SpriteRenderer catSpriteRenderer;
     Animator animator;
@@ -187,10 +187,6 @@ public class PlayerCtrl : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Ground"))
-        {
-            isJumping = false;
-        }
     }
 
     void OnTriggerEnter2D(Collider2D other) 

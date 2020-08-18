@@ -10,6 +10,7 @@ TagManager:
   - Breakable
   - PLayerHead
   - Water
+  - PlayerFeet
   layers:
   - Default
   - TransparentFX
