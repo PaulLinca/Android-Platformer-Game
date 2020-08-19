@@ -9476,6 +9476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dustParticlePosition: {fileID: 1007814790}
+  player: {fileID: 415564682}
 --- !u!68 &1541674836
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -9757,15 +9758,15 @@ MonoBehaviour:
   m_Script: {fileID: -435425093, guid: 10543135a69df4b84bbfd631841f8af9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4966079249039346012, guid: e40ce8e1f3dd60745ac258ee313aae23, type: 3}
-  gizmoPosition: {x: -17, y: 1}
+  prefab: {fileID: 5833192556636342542, guid: 7e057a40eede4134c8be5d4aef297e26, type: 3}
+  gizmoPosition: {x: -12, y: 3}
   gridOrigin: {x: 0, y: 0, z: 0}
   mapSize: {x: 0, y: 0}
   tileSize: {x: 0, y: 0}
   brushMode: 0
-  paintMode: 0
+  paintMode: 1
   colliderMode: 0
-  groupMode: 1
+  groupMode: 0
   copyMode: 0
   workingModeBool: 0
   isTrigger: 0
