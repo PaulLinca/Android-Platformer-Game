@@ -10,7 +10,7 @@ public class PlayerCtrl : MonoBehaviour
     [Tooltip("This is a positive integer which speeds up the player jump.")]
     public int jumpSpeed = 600;
 
-    bool leftPressed, rightPressed;
+    public bool leftPressed, rightPressed;
     public bool isJumping;
     public bool isGrounded;
     public Transform feet;
@@ -24,7 +24,8 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject leftBullet, rightBullet;
     public bool SFXOn;
     public bool canFire;
-    
+    public bool isStuck;
+
     Rigidbody2D catRigidbody;
     SpriteRenderer catSpriteRenderer;
     Animator animator;
