@@ -12,7 +12,10 @@ public class GameCtrl : MonoBehaviour
     string dataFilePath;
     BinaryFormatter binaryFormatter;
 
+    public int coinScoreValue;
+
     public Text textCoinCount;
+    public Text textScore;
 
     void Awake()
     {
@@ -52,6 +55,7 @@ public class GameCtrl : MonoBehaviour
                 data = (GameData) binaryFormatter.Deserialize(fs);
                 Debug.Log("Number of coins = " + data.coinCount);
                 textCoinCount.text = $" x {data.coinCount}";
+                textScore.text = $"Score: {data.score}";
             }
             fs.Close();
         }
@@ -73,7 +77,9 @@ public class GameCtrl : MonoBehaviour
     {
         FileStream fs = new FileStream(dataFilePath, FileMode.Create);
         data.coinCount = 0;
+        data.score = 0;
         textCoinCount.text = $" x {data.coinCount}";
+        textScore.text = $"Score: {data.score}";
         binaryFormatter.Serialize(fs, data);
         fs.Close();
     }
@@ -90,6 +96,14 @@ public class GameCtrl : MonoBehaviour
     {
         data.coinCount++;
         textCoinCount.text = $" x {data.coinCount}";
+
+        UpdateScore(coinScoreValue);
+    }
+
+    public void UpdateScore(int scoreIncrement)
+    {
+        data.score += scoreIncrement;
+        textScore.text = $"Score: {data.score}";
     }
 
     void RestartLevel()

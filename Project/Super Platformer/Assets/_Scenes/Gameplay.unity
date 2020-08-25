@@ -7614,7 +7614,10 @@ MonoBehaviour:
   restartDelay: 1
   data:
     coinCount: 10
+    score: 0
+  coinScoreValue: 10
   textCoinCount: {fileID: 1727859668}
+  textScore: {fileID: 1555616724}
 --- !u!1 &1069603381
 GameObject:
   m_ObjectHideFlags: 0
