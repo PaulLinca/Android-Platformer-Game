@@ -1799,7 +1799,7 @@ GameObject:
   - component: {fileID: 285654536}
   - component: {fileID: 285654538}
   - component: {fileID: 285654537}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: img_key_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2601,7 +2601,7 @@ GameObject:
   - component: {fileID: 454646464}
   - component: {fileID: 454646466}
   - component: {fileID: 454646465}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: img_heart_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3687,7 +3687,7 @@ GameObject:
   - component: {fileID: 610030545}
   - component: {fileID: 610030547}
   - component: {fileID: 610030546}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: img_key_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4553,7 +4553,7 @@ GameObject:
   - component: {fileID: 741554802}
   - component: {fileID: 741554804}
   - component: {fileID: 741554803}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: img_heart_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6805,7 +6805,10 @@ GameObject:
   - component: {fileID: 973448256}
   - component: {fileID: 973448258}
   - component: {fileID: 973448257}
-  m_Layer: 0
+  - component: {fileID: 973448261}
+  - component: {fileID: 973448260}
+  - component: {fileID: 973448259}
+  m_Layer: 4
   m_Name: img_coin_count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6868,6 +6871,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 973448255}
   m_CullTransparentMesh: 0
+--- !u!114 &973448259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973448255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d265708036fde7a4ba9f8b5cb0964bc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &973448260
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973448255}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &973448261
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973448255}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!1001 &987624593
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7828,7 +7880,7 @@ GameObject:
   - component: {fileID: 1126979159}
   - component: {fileID: 1126979161}
   - component: {fileID: 1126979160}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: txt_timer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9863,7 +9915,7 @@ GameObject:
   - component: {fileID: 1429369996}
   - component: {fileID: 1429369995}
   - component: {fileID: 1429369994}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: btn_pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10560,7 +10612,7 @@ GameObject:
   - component: {fileID: 1555616723}
   - component: {fileID: 1555616725}
   - component: {fileID: 1555616724}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: txt_score
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11197,7 +11249,7 @@ GameObject:
   - component: {fileID: 1625432911}
   - component: {fileID: 1625432913}
   - component: {fileID: 1625432912}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Panel_HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12165,7 +12217,7 @@ GameObject:
   - component: {fileID: 1727859667}
   - component: {fileID: 1727859669}
   - component: {fileID: 1727859668}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: txt_coin_count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13119,7 +13171,7 @@ GameObject:
   - component: {fileID: 1867996151}
   - component: {fileID: 1867996153}
   - component: {fileID: 1867996152}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: img_key_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14570,7 +14622,7 @@ GameObject:
   - component: {fileID: 2098827957}
   - component: {fileID: 2098827959}
   - component: {fileID: 2098827958}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: img_heart_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
