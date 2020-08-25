@@ -2892,6 +2892,7 @@ GameObject:
   - component: {fileID: 487700975}
   - component: {fileID: 487700976}
   - component: {fileID: 487700977}
+  - component: {fileID: 487700978}
   m_Layer: 11
   m_Name: Head
   m_TagString: PLayerHead
@@ -2951,6 +2952,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c78c14990e3fd54693db4f1924eab99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &487700978
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487700974}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &491264804
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7592,6 +7614,7 @@ MonoBehaviour:
   restartDelay: 1
   data:
     coinCount: 10
+  textCoinCount: {fileID: 1727859668}
 --- !u!1 &1069603381
 GameObject:
   m_ObjectHideFlags: 0
@@ -10441,6 +10464,7 @@ GameObject:
   - component: {fileID: 1541674834}
   - component: {fileID: 1541674836}
   - component: {fileID: 1541674835}
+  - component: {fileID: 1541674837}
   m_Layer: 11
   m_Name: Feet
   m_TagString: PlayerFeet
@@ -10495,6 +10519,27 @@ EdgeCollider2D:
   m_Points:
   - {x: -0.6308844, y: -0.00000023841858}
   - {x: 0.7586529, y: -0.00000023841858}
+--- !u!50 &1541674837
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1541674833}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &1547551960 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4369131009352345753, guid: 5a7528230890b1046ba3bf7ecbd7d038,

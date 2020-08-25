@@ -199,6 +199,7 @@ public class PlayerCtrl : MonoBehaviour
                 {
                     SFXCtrl.instance.ShowCoinSparkle(other.gameObject.transform.position);
                 }
+                GameCtrl.instance.UpdateCoinCount();
                 break;
             case "Powerup_Bullet":
                 canFire = true;

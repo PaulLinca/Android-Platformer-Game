@@ -1,6 +1,7 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class GameCtrl : MonoBehaviour
@@ -10,6 +11,8 @@ public class GameCtrl : MonoBehaviour
     public GameData data;
     string dataFilePath;
     BinaryFormatter binaryFormatter;
+
+    public Text textCoinCount;
 
     void Awake()
     {
@@ -48,6 +51,7 @@ public class GameCtrl : MonoBehaviour
             {
                 data = (GameData) binaryFormatter.Deserialize(fs);
                 Debug.Log("Number of coins = " + data.coinCount);
+                textCoinCount.text = $" x {data.coinCount}";
             }
             fs.Close();
         }
@@ -69,6 +73,7 @@ public class GameCtrl : MonoBehaviour
     {
         FileStream fs = new FileStream(dataFilePath, FileMode.Create);
         data.coinCount = 0;
+        textCoinCount.text = $" x {data.coinCount}";
         binaryFormatter.Serialize(fs, data);
         fs.Close();
     }
@@ -79,6 +84,12 @@ public class GameCtrl : MonoBehaviour
         player.SetActive(false);
 
         Invoke("RestartLevel", restartDelay);
+    }
+
+    public void UpdateCoinCount()
+    {
+        data.coinCount++;
+        textCoinCount.text = $" x {data.coinCount}";
     }
 
     void RestartLevel()
