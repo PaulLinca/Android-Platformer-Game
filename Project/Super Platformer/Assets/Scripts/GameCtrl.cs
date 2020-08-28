@@ -14,8 +14,7 @@ public class GameCtrl : MonoBehaviour
 
     public int coinScoreValue;
 
-    public Text textCoinCount;
-    public Text textScore;
+    public UI ui;
 
     void Awake()
     {
@@ -54,8 +53,8 @@ public class GameCtrl : MonoBehaviour
             {
                 data = (GameData) binaryFormatter.Deserialize(fs);
                 Debug.Log("Number of coins = " + data.coinCount);
-                textCoinCount.text = $" x {data.coinCount}";
-                textScore.text = $"Score: {data.score}";
+                ui.textCoinCount.text = $" x {data.coinCount}";
+                ui.textScore.text = $"Score: {data.score}";
             }
             fs.Close();
         }
@@ -78,8 +77,14 @@ public class GameCtrl : MonoBehaviour
         FileStream fs = new FileStream(dataFilePath, FileMode.Create);
         data.coinCount = 0;
         data.score = 0;
-        textCoinCount.text = $" x {data.coinCount}";
-        textScore.text = $"Score: {data.score}";
+        ui.textCoinCount.text = $" x {data.coinCount}";
+        ui.textScore.text = $"Score: {data.score}";
+
+        for(int key = 0; key < 3; key++)
+        {
+            data.keyFound[key] = false;
+        }
+
         binaryFormatter.Serialize(fs, data);
         fs.Close();
     }
@@ -95,7 +100,7 @@ public class GameCtrl : MonoBehaviour
     public void UpdateCoinCount()
     {
         data.coinCount++;
-        textCoinCount.text = $" x {data.coinCount}";
+        ui.textCoinCount.text = $" x {data.coinCount}";
 
         UpdateScore(coinScoreValue);
     }
@@ -103,7 +108,24 @@ public class GameCtrl : MonoBehaviour
     public void UpdateScore(int scoreIncrement)
     {
         data.score += scoreIncrement;
-        textScore.text = $"Score: {data.score}";
+        ui.textScore.text = $"Score: {data.score}";
+    }
+
+    public void UpdateKeyCount(int keyNumber)
+    {
+        data.keyFound[keyNumber] = true;
+        if(keyNumber == 0)
+        {
+            ui.key0.sprite = ui.key0Full;
+        }
+        else if(keyNumber == 1)
+        {
+            ui.key1.sprite = ui.key1Full;
+        }
+        else if(keyNumber == 2)
+        {
+            ui.key2.sprite = ui.key2Full;
+        }
     }
 
     void RestartLevel()

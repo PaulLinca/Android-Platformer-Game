@@ -6,6 +6,7 @@ public class SFXCtrl : MonoBehaviour
 {
     public static SFXCtrl instance;
     public SFX sfx;
+    public Transform key0Pos, key1Pos, key2Pos;
 
     void Awake()
     {
@@ -18,6 +19,24 @@ public class SFXCtrl : MonoBehaviour
     public void ShowCoinSparkle(Vector3 position)
     {
         Instantiate(sfx.sfx_coin_pickup, position, Quaternion.identity);
+    }
+
+    public void ShowKeySparkle(int keyNumber)
+    {
+        Vector3 position = Vector3.zero;
+        if(keyNumber == 0)
+        {
+            position = key0Pos.position;
+        }
+        else if(keyNumber == 1)
+        {
+            position = key1Pos.position;
+        }
+        else if(keyNumber == 2)
+        {
+            position = key2Pos.position;
+        }
+        Instantiate(sfx.sfx_bullet_pickup, position, Quaternion.identity);
     }
 
     public void ShowBulletSparkle(Vector3 position)
