@@ -33,6 +33,9 @@ public class GameCtrl : MonoBehaviour
     void Start()
     {
         timeLeft = maxTime;
+
+        HandleFirstBoot();
+        UpdateHearts();
     }
 
     void Update()
@@ -45,6 +48,20 @@ public class GameCtrl : MonoBehaviour
         if(timeLeft > 0)
         {
             UpdateTimer();
+        }
+    }
+
+    void HandleFirstBoot()
+    {
+        if(data.isFirstBoot)
+        {
+            data.lives = 3;
+            data.coinCount = 0;
+            data.keyFound[0] = false;
+            data.keyFound[1] = false;
+            data.keyFound[2] = false;
+            data.score = 0;
+            data.isFirstBoot = false;
         }
     }
 
@@ -96,16 +113,58 @@ public class GameCtrl : MonoBehaviour
             data.keyFound[key] = false;
         }
 
+        data.lives = 3;
+        UpdateHearts();
+
         binaryFormatter.Serialize(fs, data);
         fs.Close();
+    }
+
+    void UpdateHearts()
+    {
+        if(data.lives == 3)
+        {
+            ui.heart0.sprite = ui.heartFull;
+            ui.heart1.sprite = ui.heartFull;
+            ui.heart2.sprite = ui.heartFull;
+        }
+        if(data.lives == 2)
+        {
+            ui.heart0.sprite = ui.heartEmpty;
+        }
+        if(data.lives == 1)
+        {
+            ui.heart0.sprite = ui.heartEmpty;
+            ui.heart1.sprite = ui.heartEmpty;
+        }
+    }
+
+    void CheckLives()
+    {
+        int updatedLives = data.lives;
+        updatedLives--;
+        data.lives = updatedLives;
+
+        if(data.lives == 0)
+        {
+            data.lives = 3;
+            SaveData();
+            
+            Invoke("GameOver", restartDelay);
+        }
+        else
+        {
+            SaveData();
+            Invoke("RestartLevel", restartDelay);
+        }
     }
 
     //restarts the level
     public void PlayerDied(GameObject player)
     {
         player.SetActive(false);
-
-        Invoke("RestartLevel", restartDelay);
+        CheckLives();
+        // Invoke("RestartLevel", restartDelay);
     }
 
     public void UpdateCoinCount()
@@ -156,5 +215,10 @@ public class GameCtrl : MonoBehaviour
             GameObject player = GameObject.FindGameObjectWithTag("Player") as GameObject;
             PlayerDied(player);
         }
+    }
+
+    void GameOver()
+    {
+        ui.panelGameOver.SetActive(true);
     }
 }
