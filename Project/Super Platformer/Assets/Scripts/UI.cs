@@ -10,7 +10,8 @@ public class UI
     [Header("Text")]
     public Text textCoinCount;
     public Text textScore;
-
+    public Text textTimer;
+    
     [Header("Images / Sprites")]
     public Image key0;
     public Image key1;

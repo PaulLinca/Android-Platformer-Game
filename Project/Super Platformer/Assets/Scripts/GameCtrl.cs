@@ -11,9 +11,10 @@ public class GameCtrl : MonoBehaviour
     public GameData data;
     string dataFilePath;
     BinaryFormatter binaryFormatter;
+    float timeLeft;
 
     public int coinScoreValue;
-
+    public float maxTime;
     public UI ui;
 
     void Awake()
@@ -29,11 +30,21 @@ public class GameCtrl : MonoBehaviour
         Debug.Log(dataFilePath);
     }
 
+    void Start()
+    {
+        timeLeft = maxTime;
+    }
+
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             ResetData();
+        }
+
+        if(timeLeft > 0)
+        {
+            UpdateTimer();
         }
     }
 
@@ -131,5 +142,19 @@ public class GameCtrl : MonoBehaviour
     void RestartLevel()
     {
         SceneManager.LoadScene("Gameplay");
+    }
+
+    void UpdateTimer()
+    {
+        timeLeft -= Time.deltaTime;
+
+        ui.textTimer.text =  $"Timer: {(int) timeLeft}";
+        if(timeLeft <= 0)
+        {
+            ui.textTimer.text =  "Timer: 0";
+            
+            GameObject player = GameObject.FindGameObjectWithTag("Player") as GameObject;
+            PlayerDied(player);
+        }
     }
 }

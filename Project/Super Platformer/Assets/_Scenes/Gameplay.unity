@@ -7822,9 +7822,11 @@ MonoBehaviour:
     score: 0
     keyFound: 000000
   coinScoreValue: 10
+  maxTime: 120
   ui:
     textCoinCount: {fileID: 1727859668}
     textScore: {fileID: 1555616724}
+    textTimer: {fileID: 1126979160}
     key0: {fileID: 1867996152}
     key1: {fileID: 610030546}
     key2: {fileID: 285654537}
