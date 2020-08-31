@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine;
-using UnityEngine.UI;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class GameCtrl : MonoBehaviour
@@ -220,5 +220,45 @@ public class GameCtrl : MonoBehaviour
     void GameOver()
     {
         ui.panelGameOver.SetActive(true);
+    }
+
+    public void PlayerDiedAnimation(GameObject player)
+    {
+        // Throw player object back 
+        var rb = player.GetComponent<Rigidbody2D>();
+        rb.AddForce(new Vector2(-150f, 400f));
+
+        // Tilt player object 45 degrees
+        player.transform.Rotate(new Vector3(0, 0, 45f));
+
+        // Disable all player controls
+        player.GetComponent<PlayerCtrl>().enabled = false;
+
+        // Disable all colliders of the player object
+        foreach(Collider2D c2d in player.transform.GetComponents<Collider2D>())
+        {
+            c2d.enabled = false;
+        }
+
+        // Disable child objects of the player object - they may have coliders and other
+        foreach(Transform childTransform in player.transform)
+        {
+            childTransform.gameObject.SetActive(false);
+        }
+
+        // Disable the camera movement
+        Camera.main.GetComponent<CamerCtrl>().enabled = false;
+
+        // Set the velocity of the player to 0
+        rb.velocity = Vector2.zero;
+
+        // Restart level with a coroutine -> we cannot pass parameters (player) with invoke
+        StartCoroutine("PauseBeforeReload", player);
+    }
+
+    IEnumerator PauseBeforeReload(GameObject player)
+    {
+        yield return new WaitForSeconds(1.5f);
+        PlayerDied(player);
     }
 }

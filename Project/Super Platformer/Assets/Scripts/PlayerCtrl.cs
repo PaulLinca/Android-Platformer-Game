@@ -186,8 +186,12 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D other)
     {
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            GameCtrl.instance.PlayerDiedAnimation(gameObject);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) 
