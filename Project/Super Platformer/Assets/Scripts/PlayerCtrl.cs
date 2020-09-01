@@ -192,6 +192,14 @@ public class PlayerCtrl : MonoBehaviour
         {
             GameCtrl.instance.PlayerDiedAnimation(gameObject);
         }
+        if(other.gameObject.CompareTag("BigCoin"))
+        {
+            GameCtrl.instance.UpdateCoinCount();
+            SFXCtrl.instance.ShowCoinSparkle(other.gameObject.transform.position);
+            Destroy(other.gameObject);
+
+            GameCtrl.instance.UpdateScore(GameCtrl.Item.BigCoin);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other) 

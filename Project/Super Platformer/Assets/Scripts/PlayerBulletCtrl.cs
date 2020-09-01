@@ -16,4 +16,17 @@ public class PlayerBulletCtrl : MonoBehaviour
     {
         bulletRigidbody.velocity = velocity;
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            GameCtrl.instance.BulletHitEnemy(other.gameObject.transform);
+        }
+
+        if(!other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }

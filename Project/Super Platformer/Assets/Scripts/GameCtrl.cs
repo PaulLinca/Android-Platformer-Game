@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class GameCtrl : MonoBehaviour
 {
+    public enum Item
+    {
+        Coin,
+        BigCoin,
+        Enemy
+    }
+
     public static GameCtrl instance;
     public float restartDelay;
     public GameData data;
@@ -14,8 +21,12 @@ public class GameCtrl : MonoBehaviour
     float timeLeft;
 
     public int coinScoreValue;
+    public int bigCoinScoreValue;
+    public int enemyScoreValue;
+
     public float maxTime;
     public UI ui;
+    public GameObject bigCoin;
 
     void Awake()
     {
@@ -172,11 +183,26 @@ public class GameCtrl : MonoBehaviour
         data.coinCount++;
         ui.textCoinCount.text = $" x {data.coinCount}";
 
-        UpdateScore(coinScoreValue);
+        UpdateScore(Item.Coin);
     }
 
-    public void UpdateScore(int scoreIncrement)
+    public void UpdateScore(Item item)
     {
+        int scoreIncrement = 0;
+        switch(item)
+        {
+            case Item.Coin:
+                scoreIncrement = coinScoreValue;
+                break;
+            case Item.BigCoin:
+                scoreIncrement = bigCoinScoreValue;
+                break;
+            case Item.Enemy:
+                scoreIncrement = enemyScoreValue;
+                break;
+            default:
+                break;
+        }
         data.score += scoreIncrement;
         ui.textScore.text = $"Score: {data.score}";
     }
@@ -260,5 +286,18 @@ public class GameCtrl : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         PlayerDied(player);
+    }
+
+    public void BulletHitEnemy(Transform enemy)
+    {
+        Vector3 enemyPos = enemy.position;
+        enemyPos.z = 20f;
+        SFXCtrl.instance.ShowEnemyExplosion(enemyPos);
+
+        Destroy(enemy.gameObject);
+
+        Instantiate(bigCoin, enemyPos, Quaternion.identity);
+
+        Destroy(enemy.gameObject);
     }
 }

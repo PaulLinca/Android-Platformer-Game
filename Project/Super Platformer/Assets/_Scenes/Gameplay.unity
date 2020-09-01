@@ -2652,6 +2652,7 @@ GameObject:
   - component: {fileID: 422305754}
   - component: {fileID: 422305753}
   - component: {fileID: 422305752}
+  - component: {fileID: 422305755}
   m_Layer: 0
   m_Name: HUD
   m_TagString: Untagged
@@ -2740,6 +2741,25 @@ Canvas:
   m_SortingLayerID: -628026407
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!95 &422305755
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422305750}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fad6c3adec7e046e490a483309e6a8ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &446050191
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8109,10 +8129,12 @@ MonoBehaviour:
   data:
     coinCount: 10
     score: 0
-    keyFound: 000000
+    keyFound: 000100
     lives: 0
     isFirstBoot: 0
-  coinScoreValue: 10
+  coinScoreValue: 5
+  bigCoinScoreValue: 10
+  enemyScoreValue: 15
   maxTime: 120
   ui:
     textCoinCount: {fileID: 1727859668}
@@ -8130,6 +8152,7 @@ MonoBehaviour:
     heartFull: {fileID: 21300000, guid: 41bb06b56d48d4c04ad6f95c8d753835, type: 3}
     heartEmpty: {fileID: 21300000, guid: fcf2c01e77e074b6bb02a23973787849, type: 3}
     panelGameOver: {fileID: 1787093142}
+  bigCoin: {fileID: 100929199705436698, guid: b621694f880730a449fedebb030df7bd, type: 3}
 --- !u!1 &1069603381
 GameObject:
   m_ObjectHideFlags: 0
@@ -14399,6 +14422,8 @@ MonoBehaviour:
     sfx_box_fragment_2: {fileID: 3744988206121732056, guid: 9d5de85952c47604392280b6188090a1,
       type: 3}
     sfx_splash: {fileID: 177332, guid: c107d245af1294bba9cfc31ada72f0c0, type: 3}
+    sfx_enemy_explosion: {fileID: 181022, guid: 6cc865aeea61d4faf894fac185254654,
+      type: 3}
   key0Pos: {fileID: 1867996151}
   key1Pos: {fileID: 610030545}
   key2Pos: {fileID: 285654536}
