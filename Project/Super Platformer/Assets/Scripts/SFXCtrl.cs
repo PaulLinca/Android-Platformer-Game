@@ -79,4 +79,9 @@ public class SFXCtrl : MonoBehaviour
     {
         Instantiate(sfx.sfx_enemy_explosion, position, Quaternion.identity);
     }
+
+    public void ShowEnemyPoof(Vector3 position)
+    {
+        Instantiate(sfx.sfx_player_land, position, Quaternion.identity);
+    }
 }
