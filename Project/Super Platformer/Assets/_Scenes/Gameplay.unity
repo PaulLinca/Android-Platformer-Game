@@ -15570,6 +15570,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 838406847}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2246683808373770807
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.63
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3931079
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808196, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2246683808269808199, guid: 16eac8c353cfe06479786fb4eb8c243b,
+        type: 3}
+      propertyPath: m_Name
+      value: Bomber Bee
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16eac8c353cfe06479786fb4eb8c243b, type: 3}
 --- !u!1001 &6441804869107768183
 PrefabInstance:
   m_ObjectHideFlags: 0

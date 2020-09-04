@@ -29,4 +29,13 @@ public class PlayerBulletCtrl : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("Enemy"))
+        {
+            GameCtrl.instance.BulletHitEnemy(other.gameObject.transform);
+            Destroy(gameObject);
+        }
+    }
 }

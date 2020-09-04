@@ -224,6 +224,9 @@ public class PlayerCtrl : MonoBehaviour
             case "Water":
                 SFXCtrl.instance.ShowWaterSplash(other.gameObject.transform.position);
                 break;
+            case "Enemy":
+                GameCtrl.instance.PlayerDiedAnimation(gameObject);
+                break;
             default:
                 break;
         }
