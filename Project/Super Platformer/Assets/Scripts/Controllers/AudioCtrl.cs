@@ -10,13 +10,19 @@ public class AudioCtrl : MonoBehaviour
     public Transform player;
     [Tooltip("soundOn is used to toggle sound on/off from the inspector")]
     public bool soundOn;
-
+    public GameObject bgMusic;
+    public bool bgMusicOn;
     // Start is called before the first frame update
     void Start()
     {
         if(instance == null)
         {
             instance = this;
+        }
+
+        if(bgMusicOn)
+        {
+            bgMusic.SetActive(true);
         }
     }
 
