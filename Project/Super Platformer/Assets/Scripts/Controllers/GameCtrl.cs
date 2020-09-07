@@ -299,6 +299,8 @@ public class GameCtrl : MonoBehaviour
         Instantiate(bigCoin, enemyPos, Quaternion.identity);
 
         Destroy(enemy.gameObject);
+
+        AudioCtrl.instance.EnemyExplosion(enemyPos);
     }
 
     public void PlayerStompsEnemy(GameObject enemy)

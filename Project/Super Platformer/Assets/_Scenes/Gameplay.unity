@@ -2920,6 +2920,62 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53d9eb4f6eea7764f86d39120b66304d, type: 3}
+--- !u!1 &467072037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467072038}
+  - component: {fileID: 467072039}
+  m_Layer: 0
+  m_Name: AudioCtrl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &467072038
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467072037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1008276790}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467072039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467072037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68166707adac0f14b85d34fa2d42d333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerAudio:
+    playerJump: {fileID: 8300000, guid: e5916fbc63e7c4443abd412cb3bd6e2a, type: 3}
+    coinPickup: {fileID: 8300000, guid: 1e0c102bdaf3c42f1b48ae92598c5f4b, type: 3}
+    fireBullets: {fileID: 8300000, guid: c3e7b44ee31e64d7fa34b81ec52c4c4c, type: 3}
+    enemyExplosion: {fileID: 8300000, guid: 9e5669deb0c2f49b2adae4f686f978b5, type: 3}
+    breakCrates: {fileID: 8300000, guid: b668216871e694c2f9bb965f86b2faf9, type: 3}
+    waterSplash: {fileID: 8300000, guid: a9201c2e5628d4cda9e92854595b2171, type: 3}
+    powerUp: {fileID: 8300000, guid: e7350538692d24099adb730f84a86860, type: 3}
+    keyFound: {fileID: 8300000, guid: 5363dd8d1cd3c42e3b85d6f52395a4c7, type: 3}
+    enemyHit: {fileID: 8300000, guid: 92854dd9ae0984259a33c06bf3ea4322, type: 3}
+    playerDied: {fileID: 8300000, guid: 38c9d812f3d774f5699f294d0f83df1b, type: 3}
+  player: {fileID: 415564687}
+  soundOn: 1
 --- !u!1001 &473929304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7536,6 +7592,7 @@ Transform:
   - {fileID: 1069603382}
   - {fileID: 1983860007}
   - {fileID: 1069061876}
+  - {fileID: 467072038}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

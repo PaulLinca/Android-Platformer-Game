@@ -87,6 +87,8 @@ public class PlayerCtrl : MonoBehaviour
             {
                 Instantiate(rightBullet, rightBulletSpawnPos.position, Quaternion.identity);
             }
+
+            AudioCtrl.instance.FireBullets(gameObject.transform.position);
         }
     }
 
@@ -160,6 +162,8 @@ public class PlayerCtrl : MonoBehaviour
             isJumping = true;
             animator.SetInteger("State", 2);
 
+            AudioCtrl.instance.PlayerJump(gameObject.transform.position);
+
             Invoke("EnableDoubleJump", delayForDoubleJump);
         }
 
@@ -168,6 +172,8 @@ public class PlayerCtrl : MonoBehaviour
             catRigidbody.velocity = Vector2.zero;
             catRigidbody.AddForce(new Vector2(0, jumpSpeed));
             animator.SetInteger("State", 2);
+
+            AudioCtrl.instance.PlayerJump(gameObject.transform.position);
 
             canDoubleJump = false;
         }
@@ -198,6 +204,7 @@ public class PlayerCtrl : MonoBehaviour
             SFXCtrl.instance.ShowCoinSparkle(other.gameObject.transform.position);
             Destroy(other.gameObject);
 
+            AudioCtrl.instance.CoinPickup(gameObject.transform.position);
             GameCtrl.instance.UpdateScore(GameCtrl.Item.BigCoin);
         }
     }
@@ -211,6 +218,7 @@ public class PlayerCtrl : MonoBehaviour
                 {
                     SFXCtrl.instance.ShowCoinSparkle(other.gameObject.transform.position);
                 }
+                AudioCtrl.instance.CoinPickup(gameObject.transform.position);
                 GameCtrl.instance.UpdateCoinCount();
                 break;
             case "Powerup_Bullet":
@@ -219,13 +227,16 @@ public class PlayerCtrl : MonoBehaviour
                 {
                     SFXCtrl.instance.ShowBulletSparkle(other.gameObject.transform.position);
                 }
+                AudioCtrl.instance.PowerUp(other.gameObject.transform.position);
                 Destroy(other.gameObject);
                 break;
             case "Water":
                 SFXCtrl.instance.ShowWaterSplash(other.gameObject.transform.position);
+                AudioCtrl.instance.WaterSplash(gameObject.transform.position);
                 break;
             case "Enemy":
                 GameCtrl.instance.PlayerDiedAnimation(gameObject);
+                AudioCtrl.instance.PlayerDied(gameObject.transform.position);
                 break;
             default:
                 break;

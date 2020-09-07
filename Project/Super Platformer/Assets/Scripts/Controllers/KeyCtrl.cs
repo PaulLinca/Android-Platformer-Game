@@ -13,6 +13,8 @@ public class KeyCtrl : MonoBehaviour
             SFXCtrl.instance.ShowKeySparkle(keyNumber);
 
             Destroy(gameObject);
+
+            AudioCtrl.instance.KeyFound(gameObject.transform.position);
         }
     }
 }

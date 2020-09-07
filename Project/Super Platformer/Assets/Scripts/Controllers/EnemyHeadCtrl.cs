@@ -11,6 +11,8 @@ public class EnemyHeadCtrl : MonoBehaviour
             GameCtrl.instance.PlayerStompsEnemy(enemy);
 
             SFXCtrl.instance.ShowEnemyPoof(enemy.transform.position);
+
+            AudioCtrl.instance.EnemyHit(enemy.transform.position);
         }
     }
 }
