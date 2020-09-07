@@ -2977,7 +2977,7 @@ MonoBehaviour:
   player: {fileID: 415564687}
   soundOn: 1
   bgMusic: {fileID: 1729881912}
-  bgMusicOn: 0
+  bgMusicOn: 1
 --- !u!1001 &473929304
 PrefabInstance:
   m_ObjectHideFlags: 0
