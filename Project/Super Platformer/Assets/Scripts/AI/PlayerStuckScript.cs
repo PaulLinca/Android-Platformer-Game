@@ -18,6 +18,11 @@ public class PlayerStuckScript : MonoBehaviour
         playerCtrl.isStuck = true;
     }
 
+    void OnCollisionStay2D(Collision2D other)
+    {
+        playerCtrl.isStuck = true;
+    }
+
     void OnTriggerExit2D(Collider2D other)
     {
         playerCtrl.isStuck = false;
