@@ -18704,16 +18704,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrolling Green Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 2312558495417794757, guid: 3ea425179ec7a204095fd52c25f872eb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 18.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2312558495488737292, guid: 3ea425179ec7a204095fd52c25f872eb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -18.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea425179ec7a204095fd52c25f872eb, type: 3}
 --- !u!1001 &1050611591
@@ -28309,7 +28299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 7567961511274040271, guid: d40b30fb0b36ca6458d66ff19a8c90e3, type: 3}
-  gizmoPosition: {x: 28, y: 8}
+  gizmoPosition: {x: 28, y: 7}
   gridOrigin: {x: 0, y: 0, z: 0}
   mapSize: {x: 0, y: 0}
   tileSize: {x: 0, y: 0}
