@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f100def8a7026db478a8a912c0584629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 0}
+  enemy: {fileID: 505040753409921720}
 --- !u!1 &505040753409921720
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,7 +167,7 @@ Animator:
   m_GameObject: {fileID: 505040753409921720}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 70fe42a34cf137a4cb6e8b99d71a681b, type: 2}
+  m_Controller: {fileID: 9100000, guid: a03826966903c6d499f1ce1c76cb6274, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

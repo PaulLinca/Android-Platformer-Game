@@ -28637,7 +28637,7 @@ PrefabInstance:
     - target: {fileID: 8012811190529730241, guid: fb62266deb94b0a468939aac48d558e8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.5
+      value: -3.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb62266deb94b0a468939aac48d558e8, type: 3}
@@ -30438,6 +30438,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Patrolling Green Monster
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312558495417794757, guid: 3ea425179ec7a204095fd52c25f872eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312558495488737292, guid: 3ea425179ec7a204095fd52c25f872eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -6.84
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea425179ec7a204095fd52c25f872eb, type: 3}
@@ -39034,6 +39044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 10.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2312558495488737292, guid: 3ea425179ec7a204095fd52c25f872eb,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.97
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea425179ec7a204095fd52c25f872eb, type: 3}
