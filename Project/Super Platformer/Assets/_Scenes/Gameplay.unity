@@ -12396,21 +12396,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Patrolling Green Monster
       objectReference: {fileID: 0}
-    - target: {fileID: 2312558495417794757, guid: 3ea425179ec7a204095fd52c25f872eb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2312558495429431866, guid: 3ea425179ec7a204095fd52c25f872eb,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: a03826966903c6d499f1ce1c76cb6274, type: 2}
-    - target: {fileID: 2312558495488737292, guid: 3ea425179ec7a204095fd52c25f872eb,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ea425179ec7a204095fd52c25f872eb, type: 3}
 --- !u!4 &1667691746 stripped
@@ -15999,11 +15984,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Patrolling Spider
-      objectReference: {fileID: 0}
-    - target: {fileID: 8012811188843442947, guid: fb62266deb94b0a468939aac48d558e8,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 8012811188843442956, guid: fb62266deb94b0a468939aac48d558e8,
         type: 3}
