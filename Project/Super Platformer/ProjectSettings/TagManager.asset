@@ -18,6 +18,7 @@ TagManager:
   - EnemyHead
   - LevelOneBoss
   - PlayerBullet
+  - BossKey
   layers:
   - Default
   - TransparentFX

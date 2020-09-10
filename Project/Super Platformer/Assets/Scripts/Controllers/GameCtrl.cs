@@ -27,6 +27,8 @@ public class GameCtrl : MonoBehaviour
     public float maxTime;
     public UI ui;
     public GameObject bigCoin;
+    public GameObject player;
+    public GameObject lever;
 
     void Awake()
     {
@@ -310,5 +312,22 @@ public class GameCtrl : MonoBehaviour
         Destroy(enemy);
 
         UpdateScore(Item.Enemy);
+    }
+
+    public void StopCameraFollow()
+    {
+        Camera.main.GetComponent<CamerCtrl>().enabled = false;
+
+        //disable parallax
+        player.GetComponent<PlayerCtrl>().isStuck = true;
+        player.transform.Find("LeftCheck").gameObject.SetActive(false);
+        player.transform.Find("RightCheck").gameObject.SetActive(false);
+    }
+
+    public void ShowLever()
+    {
+        lever.SetActive(true);
+        SFXCtrl.instance.ShowPlayerLanding(lever.gameObject.transform.position);
+        AudioCtrl.instance.EnemyExplosion(lever.gameObject.transform.position);
     }
 }

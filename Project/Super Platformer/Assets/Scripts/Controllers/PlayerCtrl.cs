@@ -197,6 +197,7 @@ public class PlayerCtrl : MonoBehaviour
         if(other.gameObject.CompareTag("Enemy"))
         {
             GameCtrl.instance.PlayerDiedAnimation(gameObject);
+            AudioCtrl.instance.PlayerDied(gameObject.transform.position);
         }
         if(other.gameObject.CompareTag("BigCoin"))
         {
@@ -206,6 +207,11 @@ public class PlayerCtrl : MonoBehaviour
 
             AudioCtrl.instance.CoinPickup(gameObject.transform.position);
             GameCtrl.instance.UpdateScore(GameCtrl.Item.BigCoin);
+        }
+        if(other.gameObject.CompareTag("LevelOneBoss"))
+        {
+            GameCtrl.instance.PlayerDiedAnimation(gameObject);
+            AudioCtrl.instance.PlayerDied(gameObject.transform.position);
         }
     }
 
@@ -237,6 +243,9 @@ public class PlayerCtrl : MonoBehaviour
             case "Enemy":
                 GameCtrl.instance.PlayerDiedAnimation(gameObject);
                 AudioCtrl.instance.PlayerDied(gameObject.transform.position);
+                break;
+            case "BossKey":
+                GameCtrl.instance.ShowLever();
                 break;
             default:
                 break;
