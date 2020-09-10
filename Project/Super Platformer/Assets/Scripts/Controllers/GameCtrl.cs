@@ -19,6 +19,7 @@ public class GameCtrl : MonoBehaviour
     string dataFilePath;
     BinaryFormatter binaryFormatter;
     float timeLeft;
+    bool timerOn;
 
     public int coinScoreValue;
     public int bigCoinScoreValue;
@@ -29,6 +30,8 @@ public class GameCtrl : MonoBehaviour
     public GameObject bigCoin;
     public GameObject player;
     public GameObject lever;
+    public GameObject enemySpawner;
+    public GameObject signPlatform;
 
     void Awake()
     {
@@ -49,6 +52,10 @@ public class GameCtrl : MonoBehaviour
 
         HandleFirstBoot();
         UpdateHearts();
+
+        timerOn = true;
+
+        ui.bossHealth.gameObject.SetActive(false);
     }
 
     void Update()
@@ -58,7 +65,7 @@ public class GameCtrl : MonoBehaviour
             ResetData();
         }
 
-        if(timeLeft > 0)
+        if(timeLeft > 0 && timerOn)
         {
             UpdateTimer();
         }
@@ -224,6 +231,21 @@ public class GameCtrl : MonoBehaviour
         {
             ui.key2.sprite = ui.key2Full;
         }
+
+        if(data.keyFound[0] && data.keyFound[1])
+        {
+            ShowSignPlatform();
+        }
+    }
+
+    void ShowSignPlatform()
+    {
+        signPlatform.SetActive(true);
+        SFXCtrl.instance.ShowPlayerLanding(signPlatform.transform.position);
+
+        timerOn = false;
+        
+        ui.bossHealth.gameObject.SetActive(false);
     }
 
     void RestartLevel()
@@ -329,5 +351,17 @@ public class GameCtrl : MonoBehaviour
         lever.SetActive(true);
         SFXCtrl.instance.ShowPlayerLanding(lever.gameObject.transform.position);
         AudioCtrl.instance.EnemyExplosion(lever.gameObject.transform.position);
+
+        DectivateEnemySpawner();
+    }
+
+    public void ActivateEnemySpawner()
+    {
+        enemySpawner.SetActive(true);
+    }
+
+    public void DectivateEnemySpawner()
+    {
+        enemySpawner.SetActive(false);
     }
 }

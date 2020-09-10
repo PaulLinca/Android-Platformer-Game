@@ -9,6 +9,7 @@ public class SignCtrl : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             GameCtrl.instance.StopCameraFollow();
+            GameCtrl.instance.ActivateEnemySpawner();
         }
     }
 }

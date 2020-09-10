@@ -25,6 +25,7 @@ public class UI
     public Image heart2;
     public Sprite heartFull;
     public Sprite heartEmpty;
+    public Slider bossHealth;
 
     public GameObject panelGameOver;
 }
