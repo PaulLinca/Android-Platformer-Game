@@ -32,7 +32,8 @@ public class GameCtrl : MonoBehaviour
     public GameObject lever;
     public GameObject enemySpawner;
     public GameObject signPlatform;
-
+    public GameObject levelCompleteMenu;
+    
     void Awake()
     {
         if(instance == null)
@@ -136,8 +137,33 @@ public class GameCtrl : MonoBehaviour
         data.lives = 3;
         UpdateHearts();
 
+        foreach(LevelData level in data.levelData)
+        {
+            level.starsAwarded = 0;
+            if(level.levelNumber != 1)
+            {
+                level.isUnlocked = false;
+            }
+        }
+
         binaryFormatter.Serialize(fs, data);
         fs.Close();
+    }
+
+    public int GetScore()
+    {
+        return data.score;
+    }
+
+    public void SetStarsAwarded(int levelNumber, int numOfStars)
+    {
+        data.levelData[levelNumber].starsAwarded = numOfStars;
+        Debug.Log("Set stars awarder");
+    }
+
+    public void UnlockLevel(int levelNumber)
+    {
+        data.levelData[levelNumber].isUnlocked = true;
     }
 
     void UpdateHearts()
@@ -363,5 +389,10 @@ public class GameCtrl : MonoBehaviour
     public void DectivateEnemySpawner()
     {
         enemySpawner.SetActive(false);
+    }
+
+    public void LevelComplete()
+    {
+        levelCompleteMenu.SetActive(true);
     }
 }
