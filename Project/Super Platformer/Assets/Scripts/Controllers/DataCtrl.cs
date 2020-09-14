@@ -1,10 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 public class DataCtrl : MonoBehaviour
 {
     public static DataCtrl instance = null;
+
+    public GameData data;
+
+    string dataFilePath;
+    BinaryFormatter binaryFormatter;
 
     void Awake() 
     {
@@ -17,17 +24,37 @@ public class DataCtrl : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        binaryFormatter = new BinaryFormatter();
+
+        dataFilePath = Application.persistentDataPath + "/game.dat";
+
+        Debug.Log(dataFilePath);
+    }
+    
+    public void RefreshData()
+    {
+        if(File.Exists(dataFilePath))
+        {
+            FileStream fileStream = new FileStream(dataFilePath, FileMode.Open);
+            data = (GameData) binaryFormatter.Deserialize(fileStream);
+            fileStream.Close();
+            
+            Debug.Log("Data refreshed");
+        }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public void SaveData()
     {
-        
+        FileStream fileStream = new FileStream(dataFilePath, FileMode.Create);
+        binaryFormatter.Serialize(fileStream, data);
+        fileStream.Close();
+    
+        Debug.Log("Data saved");
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnEnable()
     {
-        
+        RefreshData();
     }
 }
