@@ -1,5 +1,4 @@
 ﻿using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
@@ -32,7 +31,6 @@ public class GameCtrl : MonoBehaviour
     public GameObject lever;
     public GameObject enemySpawner;
     public GameObject signPlatform;
-    public GameObject levelCompleteMenu;
     
     void Awake()
     {
@@ -49,23 +47,22 @@ public class GameCtrl : MonoBehaviour
 
     void Start()
     {
+        DataCtrl.instance.RefreshData();
+        data = DataCtrl.instance.data;
+        RefreshUI();
+        
         timeLeft = maxTime;
+
+        timerOn = true;
 
         HandleFirstBoot();
         UpdateHearts();
-
-        timerOn = true;
 
         ui.bossHealth.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            ResetData();
-        }
-
         if(timeLeft > 0 && timerOn)
         {
             UpdateTimer();
@@ -86,68 +83,23 @@ public class GameCtrl : MonoBehaviour
         }
     }
 
-    public void SaveData()
+    public void RefreshUI()
     {
-        FileStream fs = new FileStream(dataFilePath, FileMode.Create);
-        binaryFormatter.Serialize(fs, data);
-        fs.Close();
-    }
-
-    public void LoadData()
-    {
-        if(File.Exists(dataFilePath))
-        {
-            FileStream fs = new FileStream(dataFilePath, FileMode.Open);
-            if (fs.Length != 0)
-            {
-                data = (GameData) binaryFormatter.Deserialize(fs);
-                Debug.Log("Number of coins = " + data.coinCount);
-                ui.textCoinCount.text = $" x {data.coinCount}";
-                ui.textScore.text = $"Score: {data.score}";
-            }
-            fs.Close();
-        }
+        Debug.Log("Number of coins = " + data.coinCount);
+        ui.textCoinCount.text = $" x {data.coinCount}";
+        ui.textScore.text = $"Score: {data.score}";
     }
    
     void OnEnable()
     {
         Debug.Log("Data Loaded");
-        LoadData();
+        RefreshUI();
     }   
 
     void OnDisable()
     {
         Debug.Log("Data Saved");
-        SaveData();
-    }
-
-    void ResetData()
-    {
-        FileStream fs = new FileStream(dataFilePath, FileMode.Create);
-        data.coinCount = 0;
-        data.score = 0;
-        ui.textCoinCount.text = $" x {data.coinCount}";
-        ui.textScore.text = $"Score: {data.score}";
-
-        for(int key = 0; key < 3; key++)
-        {
-            data.keyFound[key] = false;
-        }
-
-        data.lives = 3;
-        UpdateHearts();
-
-        foreach(LevelData level in data.levelData)
-        {
-            level.starsAwarded = 0;
-            if(level.levelNumber != 1)
-            {
-                level.isUnlocked = false;
-            }
-        }
-
-        binaryFormatter.Serialize(fs, data);
-        fs.Close();
+        DataCtrl.instance.SaveData(data);
     }
 
     public int GetScore()
@@ -194,13 +146,13 @@ public class GameCtrl : MonoBehaviour
         if(data.lives == 0)
         {
             data.lives = 3;
-            SaveData();
+            DataCtrl.instance.SaveData(data);
             
             Invoke("GameOver", restartDelay);
         }
         else
         {
-            SaveData();
+            DataCtrl.instance.SaveData(data);
             Invoke("RestartLevel", restartDelay);
         }
     }
@@ -276,7 +228,7 @@ public class GameCtrl : MonoBehaviour
 
     void RestartLevel()
     {
-        SceneManager.LoadScene("Gameplay");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     void UpdateTimer()
@@ -393,6 +345,7 @@ public class GameCtrl : MonoBehaviour
 
     public void LevelComplete()
     {
-        levelCompleteMenu.SetActive(true);
+        ui.panelMobileUI.SetActive(false);
+        ui.levelCompleteMenu.SetActive(true);
     }
 }

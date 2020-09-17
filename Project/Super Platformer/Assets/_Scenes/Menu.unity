@@ -191,14 +191,14 @@ MonoBehaviour:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 21300012, guid: bff554709d5aa4da0997b1010476323e, type: 3}
     m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 21300014, guid: 7f51b2aedd529424a82328b6fb31a7a5, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Highlighted
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 444681177}
   m_OnClick:
     m_PersistentCalls:
@@ -1064,6 +1064,7 @@ MonoBehaviour:
     lives: 0
     isFirstBoot: 0
     levelData: []
+  devMode: 0
 --- !u!4 &2036523517
 Transform:
   m_ObjectHideFlags: 0

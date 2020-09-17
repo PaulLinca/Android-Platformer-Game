@@ -10,6 +10,7 @@ public class DataCtrl : MonoBehaviour
     public static DataCtrl instance = null;
 
     public GameData data;
+    public bool devMode;
 
     string dataFilePath;
     BinaryFormatter binaryFormatter;
@@ -45,7 +46,7 @@ public class DataCtrl : MonoBehaviour
         }
     }
 
-    public void SaveData()
+    public void SaveData(GameData data)
     {
         FileStream fileStream = new FileStream(dataFilePath, FileMode.Create);
         binaryFormatter.Serialize(fileStream, data);
@@ -73,23 +74,47 @@ public class DataCtrl : MonoBehaviour
     {
         if(!File.Exists(dataFilePath))
         {
-            #if UNITY_ANDROID && !UNITY_EDITOR
-
-                var srcFile = System.IO.Path.Combine(Application.streamingAssetsPath, "game.dat");
-                var downloader = UnityWebRequest.Get(srcFile);
-                while(!downloader.isDone)
-                {
-                    //nothing
-                }
-
-                File.WriteAllBytes(dataFilePath, downloader.downloadHandler.data);
-                RefreshData();
-
+            #if UNITY_ANDROID
+                CopyDb();
             #endif
         }    
         else
-        {
+        {   if(SystemInfo.deviceType == DeviceType.Desktop)
+            {
+                //delete file
+                var destFile = System.IO.Path.Combine(Application.streamingAssetsPath, "game.dat");
+                File.Delete(destFile);
+
+                //copy new file
+                File.Copy(dataFilePath, destFile);
+            }
+
+            if(devMode)
+            {
+                if(SystemInfo.deviceType == DeviceType.Handheld)
+                {
+                    File.Delete(dataFilePath);
+                    CopyDb();
+                }
+            }
+
             RefreshData();
         }
+    }
+
+
+    // TODO: FIX THIS
+    // This is for Android devices but it DOESTN WORK YET IDK WHY
+    void CopyDb()
+    {
+        var srcFile = System.IO.Path.Combine(Application.streamingAssetsPath, "game.dat");
+        var downloader = UnityWebRequest.Get(srcFile);
+        while(!downloader.isDone)
+        {
+            //nothing
+        }
+
+        File.WriteAllBytes(dataFilePath, downloader.downloadHandler.data);
+        RefreshData();
     }
 }

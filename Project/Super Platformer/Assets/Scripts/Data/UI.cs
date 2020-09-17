@@ -27,5 +27,9 @@ public class UI
     public Sprite heartEmpty;
     public Slider bossHealth;
 
+    [Header("Popup Menus / Panels")]
+
+    public GameObject levelCompleteMenu;
     public GameObject panelGameOver;
+    public GameObject panelMobileUI;
 }
