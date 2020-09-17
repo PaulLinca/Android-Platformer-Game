@@ -12886,6 +12886,7 @@ GameObject:
   - component: {fileID: 387359443}
   - component: {fileID: 387359442}
   - component: {fileID: 387359441}
+  - component: {fileID: 387359444}
   m_Layer: 0
   m_Name: btnSoundToggle
   m_TagString: Untagged
@@ -12954,7 +12955,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 387359442}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 387359444}
+        m_MethodName: ToggleSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &387359442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12974,7 +12986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300298, guid: bff554709d5aa4da0997b1010476323e, type: 3}
+  m_Sprite: {fileID: 21300314, guid: 7f51b2aedd529424a82328b6fb31a7a5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12992,6 +13004,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 387359439}
   m_CullTransparentMesh: 0
+--- !u!114 &387359444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387359439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b69fd0563e67943a0e57734076dd00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &390304524 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4369131009352345753, guid: 5a7528230890b1046ba3bf7ecbd7d038,
@@ -14058,7 +14082,7 @@ MonoBehaviour:
   rightBullet: {fileID: 296271383422865709, guid: 7ab911311a3626d4dba20d99322d055a,
     type: 3}
   SFXOn: 1
-  canFire: 1
+  canFire: 0
   isStuck: 0
 --- !u!1001 &415724724
 PrefabInstance:
@@ -16180,7 +16204,13 @@ MonoBehaviour:
   player: {fileID: 415564687}
   soundOn: 1
   bgMusic: {fileID: 1729881912}
-  bgMusicOn: 0
+  bgMusicOn: 1
+  btnSound: {fileID: 387359439}
+  btnMusic: {fileID: 2024655601}
+  imgSoundOn: {fileID: 21300314, guid: bff554709d5aa4da0997b1010476323e, type: 3}
+  imgSoundOff: {fileID: 21300318, guid: bff554709d5aa4da0997b1010476323e, type: 3}
+  imgMusicOn: {fileID: 21300298, guid: bff554709d5aa4da0997b1010476323e, type: 3}
+  imgMusicOff: {fileID: 21300302, guid: bff554709d5aa4da0997b1010476323e, type: 3}
 --- !u!1001 &468046438
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39180,6 +39210,8 @@ MonoBehaviour:
     - levelNumber: 1
       isUnlocked: 1
       starsAwarded: 0
+    playSound: 0
+    playMusic: 0
   coinScoreValue: 5
   bigCoinScoreValue: 10
   enemyScoreValue: 15
@@ -56891,14 +56923,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 6772307426991072780, guid: 53d9eb4f6eea7764f86d39120b66304d, type: 3}
-  gizmoPosition: {x: 66, y: -2}
+  gizmoPosition: {x: -52, y: 15}
   gridOrigin: {x: 0, y: 0, z: 0}
   mapSize: {x: 0, y: 0}
   tileSize: {x: 0, y: 0}
   brushMode: 0
-  paintMode: 0
+  paintMode: 1
   colliderMode: 0
-  groupMode: 1
+  groupMode: 0
   copyMode: 0
   workingModeBool: 0
   isTrigger: 0
@@ -69699,7 +69731,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1945354134
 RectTransform:
   m_ObjectHideFlags: 0
@@ -69723,7 +69755,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 1080}
   m_SizeDelta: {x: -1000, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1945354136
@@ -72951,6 +72983,7 @@ GameObject:
   - component: {fileID: 2024655605}
   - component: {fileID: 2024655604}
   - component: {fileID: 2024655603}
+  - component: {fileID: 2024655606}
   m_Layer: 0
   m_Name: btnMusicToggle
   m_TagString: Untagged
@@ -73019,7 +73052,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2024655604}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2024655606}
+        m_MethodName: ToggleMusic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2024655604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73039,7 +73083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300314, guid: bff554709d5aa4da0997b1010476323e, type: 3}
+  m_Sprite: {fileID: 21300298, guid: bff554709d5aa4da0997b1010476323e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -73057,6 +73101,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024655601}
   m_CullTransparentMesh: 0
+--- !u!114 &2024655606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024655601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64b69fd0563e67943a0e57734076dd00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2025883013
 PrefabInstance:
   m_ObjectHideFlags: 0

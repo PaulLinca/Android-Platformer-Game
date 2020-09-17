@@ -2,6 +2,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class GameCtrl : MonoBehaviour
 {
@@ -373,17 +374,27 @@ public class GameCtrl : MonoBehaviour
         }
         ui.panelPause.SetActive(true);
         
-        isPaused = true;
+        ui.panelPause.gameObject.GetComponent<RectTransform>().DOAnchorPosY(0, 0.7f, false);
+
+        //isPaused = true;
+        Invoke("SetPause", 1.1f);
     }
 
     public void HidePausePanel()
     {
+        isPaused = false;
+
         if(!ui.panelMobileUI.activeInHierarchy)
         {
             ui.panelMobileUI.SetActive(true);
         }
-        ui.panelPause.SetActive(false);
+        // ui.panelPause.SetActive(false);
+        
+        ui.panelPause.gameObject.GetComponent<RectTransform>().DOAnchorPosY(1080, 0.7f, false);
+    }
 
-        isPaused = false;
+    void SetPause()
+    {
+        isPaused = true;
     }
 }
