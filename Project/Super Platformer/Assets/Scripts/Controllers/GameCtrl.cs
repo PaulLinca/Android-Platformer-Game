@@ -12,20 +12,24 @@ public class GameCtrl : MonoBehaviour
         Enemy
     }
 
-    public static GameCtrl instance;
-    public float restartDelay;
-    public GameData data;
     string dataFilePath;
     BinaryFormatter binaryFormatter;
     float timeLeft;
     bool timerOn;
+    bool isPaused;
+
+    [HideInInspector]
+    public GameData data;
 
     public int coinScoreValue;
     public int bigCoinScoreValue;
     public int enemyScoreValue;
 
+    public static GameCtrl instance;
+    public float restartDelay;
     public float maxTime;
     public UI ui;
+
     public GameObject bigCoin;
     public GameObject player;
     public GameObject lever;
@@ -52,17 +56,27 @@ public class GameCtrl : MonoBehaviour
         RefreshUI();
         
         timeLeft = maxTime;
-
         timerOn = true;
 
         HandleFirstBoot();
         UpdateHearts();
 
         ui.bossHealth.gameObject.SetActive(false);
+
+        isPaused = false;
     }
 
     void Update()
     {
+        if(isPaused)
+        {
+            Time.timeScale = 0;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+
         if(timeLeft > 0 && timerOn)
         {
             UpdateTimer();
@@ -100,6 +114,8 @@ public class GameCtrl : MonoBehaviour
     {
         Debug.Log("Data Saved");
         DataCtrl.instance.SaveData(data);
+
+        Time.timeScale = 1;
     }
 
     public int GetScore()
@@ -347,5 +363,27 @@ public class GameCtrl : MonoBehaviour
     {
         ui.panelMobileUI.SetActive(false);
         ui.levelCompleteMenu.SetActive(true);
+    }
+
+    public void ShowPausePanel()
+    {
+        if(ui.panelMobileUI.activeInHierarchy)
+        {
+            ui.panelMobileUI.SetActive(false);
+        }
+        ui.panelPause.SetActive(true);
+        
+        isPaused = true;
+    }
+
+    public void HidePausePanel()
+    {
+        if(!ui.panelMobileUI.activeInHierarchy)
+        {
+            ui.panelMobileUI.SetActive(true);
+        }
+        ui.panelPause.SetActive(false);
+
+        isPaused = false;
     }
 }

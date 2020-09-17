@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using UnityEngine.UI;
 
@@ -32,4 +30,5 @@ public class UI
     public GameObject levelCompleteMenu;
     public GameObject panelGameOver;
     public GameObject panelMobileUI;
+    public GameObject panelPause;
 }
