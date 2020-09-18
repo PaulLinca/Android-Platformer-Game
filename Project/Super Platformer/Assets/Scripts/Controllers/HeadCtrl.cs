@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Checks for collisions a breakable GameObject and then calls SFXCtrl accordingly
+/// </summary>
 public class HeadCtrl : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other) 

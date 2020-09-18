@@ -1,12 +1,13 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
+/// <summary>
+/// Handles the Level Complete AI
+/// </summary>
 public class LevelCompleteCtrl : MonoBehaviour
 {
-
     public Button btnNextLevel;
     public Sprite goldenStar;
     public Image star1;
@@ -51,12 +52,6 @@ public class LevelCompleteCtrl : MonoBehaviour
             GameCtrl.instance.SetStarsAwarded(levelNumber, 1);
             Invoke("ShowGoldenStars", animStartDelay);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     void ShowGoldenStars()

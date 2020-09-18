@@ -1,7 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Provides a simple patrolling behavior between two positions
+/// </summary>
 public class EnemyPatrolScript : MonoBehaviour
 {
     public Transform leftBound, rightBound;
@@ -15,7 +17,6 @@ public class EnemyPatrolScript : MonoBehaviour
     SpriteRenderer spriteRenderer;
     Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -27,7 +28,6 @@ public class EnemyPatrolScript : MonoBehaviour
         canTurn = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         Move();

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System;
 
+/// <summary>
+/// Groups all the SFX together
+/// </summary>
 [Serializable]
 public class SFX
 {

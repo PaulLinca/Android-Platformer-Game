@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Shows the dust particle effects when the player lands
+/// Handles jumping logic
+/// </summary>
 public class FeetCtrl : MonoBehaviour
 {
-    public Transform dustParticlePosition;
     PlayerCtrl playerCtrl;
+
     public GameObject player;
+    public Transform dustParticlePosition;
 
     void Start() 
     {

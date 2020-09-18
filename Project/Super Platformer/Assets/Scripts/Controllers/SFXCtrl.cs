@@ -1,10 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Handles the particles effects and other special effects for the game
+/// Singleton class
+/// </summary>
 public class SFXCtrl : MonoBehaviour
 {
     public static SFXCtrl instance;
+
     public SFX sfx;
     public Transform key0Pos, key1Pos, key2Pos;
 

@@ -1,16 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Handles the audio in the game
+/// </summary>
 public class AudioCtrl : MonoBehaviour
 {
     public static AudioCtrl instance;
-    public PlayerAudio playerAudio;
-    public AudioFX audioFX;
-    public Transform player;
+
     [Tooltip("soundOn is used to toggle sound on/off from the inspector")]
     public bool soundOn;
+
+    public PlayerAudio playerAudio;
+    public Transform player;
+    public AudioFX audioFX;
+
     public GameObject bgMusic;
     public bool bgMusicOn;
 

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Activates the Bomber Bee when the player comes near it
+/// </summary>
 public class BeeActivatorScript : MonoBehaviour
 {
     public GameObject bee;

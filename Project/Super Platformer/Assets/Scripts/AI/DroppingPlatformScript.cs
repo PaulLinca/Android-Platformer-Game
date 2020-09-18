@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Controls the platform's dropping behavior
+/// </summary>
 public class DroppingPlatformScript : MonoBehaviour
 {
-    Rigidbody2D rb;
-
     public float dropDelay;
 
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

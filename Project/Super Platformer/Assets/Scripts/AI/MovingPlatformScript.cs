@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Makes the platform move between two positions
+/// </summary>
 public class MovingPlatformScript : MonoBehaviour
 {
     public Transform pos1, pos2;
@@ -9,13 +10,11 @@ public class MovingPlatformScript : MonoBehaviour
     public Transform startPos;
     Vector3 nextPos;
 
-    // Start is called before the first frame update
     void Start()
     {
         nextPos = startPos.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(transform.position == pos1.position)

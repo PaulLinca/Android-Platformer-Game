@@ -1,10 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEngine.Networking;
 
+/// <summary>
+/// A singleton class for creating a persistent DataCtrl gameobject
+/// and helps in creating centralized database access code
+/// </summary>
 public class DataCtrl : MonoBehaviour
 {
     public static DataCtrl instance = null;

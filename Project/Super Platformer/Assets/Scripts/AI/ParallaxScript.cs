@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Provides the Parallax Effect
+/// </summary>
 public class ParallaxScript : MonoBehaviour
 {
     public float speed;
@@ -10,14 +11,12 @@ public class ParallaxScript : MonoBehaviour
     public GameObject player;
     PlayerCtrl playerCtrl;
 
-    // Start is called before the first frame update
     void Start()
     {
         mat = GetComponent<Renderer>().material;
         playerCtrl = player.GetComponent<PlayerCtrl>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(!playerCtrl.isStuck)

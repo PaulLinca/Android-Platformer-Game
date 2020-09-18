@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System;
-using UnityEngine;
+﻿using System;
 
+/// <summary>
+/// Contains basic information about a level
+/// </summary>
 [Serializable]
 public class LevelData
 {

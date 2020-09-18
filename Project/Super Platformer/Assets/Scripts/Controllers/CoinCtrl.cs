@@ -1,5 +1,9 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Handles the coin behavior and player interaction
+/// </summary>
 public class CoinCtrl : MonoBehaviour
 {
     public enum CoinFX

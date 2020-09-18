@@ -2,6 +2,9 @@
 using System;
 using UnityEngine.UI;
 
+/// <summary>
+/// Groups all the user interface elements together 
+/// </summary>
 [Serializable]
 public class UI 
 {

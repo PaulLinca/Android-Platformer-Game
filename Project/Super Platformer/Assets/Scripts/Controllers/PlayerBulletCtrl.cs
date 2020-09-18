@@ -1,9 +1,14 @@
 ﻿using UnityEngine;
 
+
+/// <summary>
+/// Handles the player's bullet movement and collision with the enemy
+/// </summary>
 public class PlayerBulletCtrl : MonoBehaviour
 {
-    Rigidbody2D bulletRigidbody;
     public Vector2 velocity;
+
+    Rigidbody2D bulletRigidbody;
 
     // Start is called before the first frame update
     void Start()

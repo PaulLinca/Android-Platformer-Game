@@ -1,34 +1,48 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerCtrl : MonoBehaviour
 {
-    [Tooltip("This is a positive integer which speeds up the player movement.")]
-    public int speedBoost = 5;
-    [Tooltip("This is a positive integer which speeds up the player jump.")]
-    public int jumpSpeed = 600;
+    #region Movement
 
+    public int speedBoost = 5;
+    public int jumpSpeed = 600;
     public bool leftPressed, rightPressed;
+    public bool isStuck;
+
+    #endregion
+
+    #region Jumping
+
     public bool isJumping;
     public bool isGrounded;
     public Transform feet;
     public float feetRadius;
     public LayerMask whatIsGround;
-    public float boxWidth;
-    public float boxHeight;
     public float delayForDoubleJump;
+
     bool canDoubleJump;
+
+    #endregion
+
+    #region Firing
+
     public Transform leftBulletSpawnPos, rightBulletSpawnPos;
     public GameObject leftBullet, rightBullet;
-    public bool SFXOn;
     public bool canFire;
-    public bool isStuck;
+
+    #endregion
+
+    public float boxWidth;
+    public float boxHeight;
+    public bool SFXOn;
+
+    #region GameObject Components
 
     Rigidbody2D catRigidbody;
     SpriteRenderer catSpriteRenderer;
     Animator animator;
+
+    #endregion
 
     void Start()
     {

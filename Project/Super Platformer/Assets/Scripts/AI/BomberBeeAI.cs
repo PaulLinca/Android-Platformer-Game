@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
+/// <summary>
+/// The AI Engine of the Bomber Bee
+/// </summary>
 public class BomberBeeAI : MonoBehaviour
 {
     public float destoryBeeDelay;

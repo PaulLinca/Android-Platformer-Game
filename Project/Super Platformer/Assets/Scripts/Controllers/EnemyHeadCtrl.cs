@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Controls the enemy behavior when the player jumps on its head
+/// </summary>
 public class EnemyHeadCtrl : MonoBehaviour
 {
     public GameObject enemy;

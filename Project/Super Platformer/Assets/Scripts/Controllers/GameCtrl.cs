@@ -4,8 +4,13 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
+/// <summary>
+/// Manages the important features like keeping the score, restarting levels, saving/loading data, updating the HUD etc
+/// </summary>
 public class GameCtrl : MonoBehaviour
 {
+    public static GameCtrl instance;
+
     public enum Item
     {
         Coin,
@@ -26,7 +31,6 @@ public class GameCtrl : MonoBehaviour
     public int bigCoinScoreValue;
     public int enemyScoreValue;
 
-    public static GameCtrl instance;
     public float restartDelay;
     public float maxTime;
     public UI ui;

@@ -1,7 +1,10 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Spawns enemies during the boss battle
+/// </summary>
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemy;
@@ -9,13 +12,11 @@ public class EnemySpawner : MonoBehaviour
 
     bool canSpawn;
 
-    // Start is called before the first frame update
     void Start()
     {
         canSpawn = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(canSpawn)

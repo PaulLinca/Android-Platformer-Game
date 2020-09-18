@@ -1747,6 +1747,8 @@ MonoBehaviour:
     lives: 0
     isFirstBoot: 0
     levelData: []
+    playSound: 0
+    playMusic: 0
   devMode: 1
 --- !u!4 &569406002
 Transform:

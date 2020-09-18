@@ -1,13 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Manages the behavior of the box fragments
+/// </summary>
 public class FragmentCtrl : MonoBehaviour
 {
     public Vector3 jumpForce;
     public float destroyDelay;
-
-
+    
     Rigidbody2D rb;
 
     // Start is called before the first frame update

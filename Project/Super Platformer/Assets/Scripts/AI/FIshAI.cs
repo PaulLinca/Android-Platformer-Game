@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// The AI Engine of the Jumping Fish
+/// </summary>
 public class FIshAI : MonoBehaviour
 {
     public float jumpSpeed;
@@ -9,7 +10,6 @@ public class FIshAI : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,7 +23,6 @@ public class FIshAI : MonoBehaviour
         rb.AddForce(new Vector2(0, jumpSpeed));
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(rb.velocity.y > 0)

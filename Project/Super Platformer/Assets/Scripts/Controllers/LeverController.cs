@@ -1,7 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Releases the Dog from its cage
+/// </summary>
 public class LeverController : MonoBehaviour
 {
     public GameObject dog;

@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Makes the enemy move in a straight line
+/// Also checks for collisions and reverses enemy movement direction
+/// </summary>
 public class SimpleMovementScript : MonoBehaviour
 {
     public float speed;
@@ -9,14 +11,12 @@ public class SimpleMovementScript : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector2 temp = rb.velocity;

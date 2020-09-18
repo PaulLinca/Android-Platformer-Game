@@ -1,7 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This script spawns or shows the jumping fish, every spawnDelay number of seconds
+/// </summary>
 public class FishSpawnerScript : MonoBehaviour
 {
     public GameObject fish;
@@ -9,13 +11,11 @@ public class FishSpawnerScript : MonoBehaviour
 
     bool canSpawn;
 
-    // Start is called before the first frame update
     void Start()
     {
         canSpawn = true;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(canSpawn)

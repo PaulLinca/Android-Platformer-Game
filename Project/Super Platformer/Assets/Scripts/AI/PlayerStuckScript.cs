@@ -1,13 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+/// <summary>
+/// Checks when the player is stuck
+/// </summary>
 public class PlayerStuckScript : MonoBehaviour
 {
     public GameObject player;
+
     PlayerCtrl playerCtrl;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerCtrl = player.GetComponent<PlayerCtrl>();

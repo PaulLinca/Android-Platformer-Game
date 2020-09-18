@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Routes the mobile input to the correct methods in the PlayerCtrl script
+/// </summary>
 public class MobileUICtrl : MonoBehaviour
 {
     public GameObject player;
 
     PlayerCtrl playerCtrl;
 
-    // Start is called before the first frame update
     void Start()
     {
         playerCtrl = player.GetComponent<PlayerCtrl>();   
@@ -16,10 +18,12 @@ public class MobileUICtrl : MonoBehaviour
     {
         playerCtrl.MobileMoveLeft();
     }
+    
     public void MobileMoveRight()
     {
         playerCtrl.MobileMoveRight();
     }
+
     public void MobileStop()
     {
         playerCtrl.MobileStop();

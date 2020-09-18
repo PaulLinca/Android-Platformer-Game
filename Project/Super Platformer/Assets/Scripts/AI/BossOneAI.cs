@@ -1,8 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// The AI Engine of Level One Boss
+/// </summary>
 public class BossOneAI : MonoBehaviour
 {
     public float jumpSpeed;
@@ -18,7 +19,6 @@ public class BossOneAI : MonoBehaviour
     Vector3 bulletSpawnPos;
     bool canFire, isJumping;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -33,7 +33,6 @@ public class BossOneAI : MonoBehaviour
         Invoke("Reload", Random.Range(1f, delayBeforeFiring));
     }
 
-    // Update is called once per frame
     void Update()
     {
         if(canFire)

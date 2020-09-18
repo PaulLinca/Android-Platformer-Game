@@ -2,6 +2,10 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+/// <summary>
+/// Locks/Unlocks a level button and shows number of stars for an unlocked button
+/// </summary>
 public class ButtonCtrl : MonoBehaviour
 {
     int levelNumber;
@@ -14,7 +18,6 @@ public class ButtonCtrl : MonoBehaviour
     public Sprite unlockedButtonSprite;
     public string sceneName;
 
-    // Start is called before the first frame update
     void Start()
     {
         levelNumber = int.Parse(transform.gameObject.name);
