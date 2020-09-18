@@ -14065,6 +14065,7 @@ MonoBehaviour:
   jumpSpeed: 600
   leftPressed: 0
   rightPressed: 0
+  isStuck: 0
   isJumping: 0
   isGrounded: 0
   feet: {fileID: 1541674834}
@@ -14072,8 +14073,6 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 256
-  boxWidth: 0.59
-  boxHeight: 0.04
   delayForDoubleJump: 0
   leftBulletSpawnPos: {fileID: 1155184482}
   rightBulletSpawnPos: {fileID: 30451362}
@@ -14081,9 +14080,10 @@ MonoBehaviour:
     type: 3}
   rightBullet: {fileID: 296271383422865709, guid: 7ab911311a3626d4dba20d99322d055a,
     type: 3}
-  SFXOn: 1
   canFire: 0
-  isStuck: 0
+  boxWidth: 0.59
+  boxHeight: 0.04
+  SFXOn: 1
 --- !u!1001 &415724724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16190,6 +16190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68166707adac0f14b85d34fa2d42d333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soundOn: 1
   playerAudio:
     playerJump: {fileID: 8300000, guid: e5916fbc63e7c4443abd412cb3bd6e2a, type: 3}
     coinPickup: {fileID: 8300000, guid: 1e0c102bdaf3c42f1b48ae92598c5f4b, type: 3}
@@ -16202,7 +16203,6 @@ MonoBehaviour:
     enemyHit: {fileID: 8300000, guid: 92854dd9ae0984259a33c06bf3ea4322, type: 3}
     playerDied: {fileID: 8300000, guid: 38c9d812f3d774f5699f294d0f83df1b, type: 3}
   player: {fileID: 415564687}
-  soundOn: 1
   bgMusic: {fileID: 1729881912}
   bgMusicOn: 1
   btnSound: {fileID: 387359439}
@@ -39200,8 +39200,10 @@ MonoBehaviour:
   data:
     coinCount: 10
     score: 0
-    keyFound: 000000
     lives: 0
+    keyFound: 000000
+    playSound: 0
+    playMusic: 0
     isFirstBoot: 1
     levelData:
     - levelNumber: 0
@@ -39210,8 +39212,6 @@ MonoBehaviour:
     - levelNumber: 1
       isUnlocked: 1
       starsAwarded: 0
-    playSound: 0
-    playMusic: 0
   coinScoreValue: 5
   bigCoinScoreValue: 10
   enemyScoreValue: 15
@@ -53338,7 +53338,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1460947755
 Transform:
   m_ObjectHideFlags: 0
@@ -55632,8 +55632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 471570a98fc0dc74bb028b1331339a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dustParticlePosition: {fileID: 1007814790}
   player: {fileID: 415564682}
+  dustParticlePosition: {fileID: 1007814790}
 --- !u!68 &1541674836
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -77050,12 +77050,12 @@ PrefabInstance:
     - target: {fileID: 6441804868969158906, guid: 24a2633ba19f5344384d486513809a3f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.98
+      value: -10.88
       objectReference: {fileID: 0}
     - target: {fileID: 6441804868969158906, guid: 24a2633ba19f5344384d486513809a3f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.86
+      value: -2.42
       objectReference: {fileID: 0}
     - target: {fileID: 6441804868969158906, guid: 24a2633ba19f5344384d486513809a3f,
         type: 3}
